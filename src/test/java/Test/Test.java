@@ -1,5 +1,6 @@
 package Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +10,8 @@ public class Test {
     @org.junit.Test
     public void test() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/test/resources/config.properties");
+        String path = "/" + System.getenv("Configuration");
+        FileInputStream fis = new FileInputStream(new File(path));
         prop.load(fis);
 
         String test = prop.getProperty("test");
